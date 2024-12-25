@@ -7,9 +7,11 @@ import (
 
 func main() {
 
-	httpServer := http.NewServeMux()
+	mux := http.NewServeMux()
 
-	httpServer.HandleFunc("/", Home)
+	mux.HandleFunc("/", Home)
+	fmt.Println("Server running on port 8080")
+	http.ListenAndServe(":8080", mux)
 }
 
 func Home(w http.ResponseWriter, r *http.Request) {
