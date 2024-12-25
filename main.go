@@ -10,6 +10,8 @@ func main() {
 	httpServer := http.NewServeMux()
 
 	httpServer.HandleFunc("/", Home)
+
+	http.ListenAndServe(":8080", httpServer)
 }
 
 func Home(w http.ResponseWriter, r *http.Request) {
